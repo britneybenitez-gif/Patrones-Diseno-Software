@@ -23,10 +23,10 @@ public class QuestionDecoratorTest {
         Question pregunta = new QuestionBuilder()
                 .withContext(
                         "Los patrones mejoran el diseño del software.",
-                        "Ingeniería de Software"
+                        "Ingenieria de Software"
                 )
                 .withEnunciado(
-                        "¿Qué patrón permite agregar funcionalidades dinámicamente?"
+                        "¿Que patron permite agregar funcionalidades dinamicamente?"
                 )
                 .addOption("Builder", false)
                 .addOption("Decorator", true)
@@ -64,12 +64,12 @@ public class QuestionDecoratorTest {
         QuestionComponent pregunta =
                 new FeedbackQuestion(
                         preguntaBasica,
-                        "Se utiliza composición de objetos."
+                        "Se utiliza composicion de objetos."
                 );
 
         assertTrue(
                 pregunta.getRetroalimentacion()
-                        .contains("Se utiliza composición de objetos.")
+                        .contains("Se utiliza composicion de objetos.")
         );
     }
 
@@ -81,14 +81,14 @@ public class QuestionDecoratorTest {
                         new HighDifficultyQuestion(
                                 preguntaBasica, 2.0
                         ),
-                        "Explicación técnica adicional."
+                        "Explicacion tecnica adicional."
                 );
 
         assertEquals(2.0, pregunta.getPuntaje());
 
         assertTrue(
                 pregunta.getRetroalimentacion()
-                        .contains("Explicación técnica adicional.")
+                        .contains("Explicacion tecnica adicional.")
         );
     }
 

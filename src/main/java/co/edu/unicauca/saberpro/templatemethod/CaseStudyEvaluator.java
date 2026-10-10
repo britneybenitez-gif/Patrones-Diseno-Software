@@ -18,7 +18,7 @@ public class CaseStudyEvaluator extends QuestionEvaluator {
         for (String palabra : palabrasClave) {
             if (palabra == null || palabra.isBlank()) {
                 throw new IllegalArgumentException(
-                    "Las palabras clave no pueden estar vacías."
+                    "Las palabras clave no pueden estar vacias."
                 );
             }
         }

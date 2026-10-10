@@ -15,18 +15,18 @@ public class QuestionBuilderTest {
 
         Question pregunta = new QuestionBuilder()
                 .withContext("Contexto de prueba", "Fuente")
-                .withEnunciado("¿Qué patrón es creacional?")
+                .withEnunciado("¿Que patron es creacional?")
                 .addOption("Builder", true)
                 .addOption("Adapter", false)
                 .addOption("Facade", false)
                 .addOption("State", false)
                 .withJustification("Builder es creacional.")
-                .withClassification("Ingeniería de Software")
+                .withClassification("Ingenieria de Software")
                 .build();
 
         assertNotNull(pregunta);
         assertEquals(4, pregunta.getOpciones().size());
-        assertEquals("¿Qué patrón es creacional?",
+        assertEquals("¿Que patron es creacional?",
                 pregunta.getEnunciado());
     }
 
@@ -51,7 +51,7 @@ public class QuestionBuilderTest {
 
         QuestionBuilder builder = new QuestionBuilder();
 
-        builder.withEnunciado("Pregunta inválida")
+        builder.withEnunciado("Pregunta invalida")
                 .addOption("A", true)
                 .addOption("B", true)
                 .addOption("C", false)
@@ -68,7 +68,7 @@ public class QuestionBuilderTest {
 
         QuestionBuilder builder = new QuestionBuilder();
 
-        builder.withEnunciado("Pregunta inválida")
+        builder.withEnunciado("Pregunta invalida")
                 .addOption("A", false)
                 .addOption("B", false)
                 .addOption("C", false)

@@ -7,7 +7,7 @@ public class PendingReviewState implements IQuestionState {
     public void submitForReview(QuestionContext question) {
 
         throw new IllegalStateException(
-            "La pregunta ya fue enviada a revisión."
+            "La pregunta ya fue enviada a revision."
         );
     }
 
@@ -17,7 +17,7 @@ public class PendingReviewState implements IQuestionState {
         question.setState(new ReviewState());
 
         System.out.println(
-            "Transición: Pendiente de Revisión -> En Revisión"
+            "Transicion: Pendiente de Revision -> En Revision"
         );
     }
 
@@ -25,7 +25,7 @@ public class PendingReviewState implements IQuestionState {
     public void approve(QuestionContext question) {
 
         throw new IllegalStateException(
-            "No se puede aprobar sin iniciar la revisión."
+            "No se puede aprobar sin iniciar la revision."
         );
     }
 
@@ -33,20 +33,20 @@ public class PendingReviewState implements IQuestionState {
     public void publish(QuestionContext question) {
 
         throw new IllegalStateException(
-            "No se puede publicar una pregunta pendiente de revisión."
+            "No se puede publicar una pregunta pendiente de revision."
         );
     }
 
     @Override
     public String getNombreEstado() {
-        return "Pendiente de Revisión";
+        return "Pendiente de Revision";
     }
     
 @Override
 public void requestCorrections(QuestionContext question) {
 
     throw new IllegalStateException(
-        "Solo se pueden solicitar correcciones durante la revisión."
+        "Solo se pueden solicitar correcciones durante la revision."
     );
 }
 

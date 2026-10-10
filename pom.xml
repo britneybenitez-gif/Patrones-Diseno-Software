@@ -1,23 +1,28 @@
-<?xml version="1.0" encoding="UTF-8"?>
+
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
 
+    <!-- INFORMACION DEL PROYECTO -->
     <groupId>co.edu.unicauca</groupId>
     <artifactId>lisw2_taller07_08_grupo4a</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <name>Banco de Preguntas Saber PRO</name>
 
+    <!-- CONFIGURACION GENERAL -->
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.compiler.release>17</maven.compiler.release>
         <junit.version>5.11.4</junit.version>
     </properties>
 
+    <!-- DEPENDENCIAS -->
     <dependencies>
+
         <!-- JUnit 5 -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -25,29 +30,32 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+
     </dependencies>
 
+    <!-- CONFIGURACION DE MAVEN -->
     <build>
         <plugins>
 
-            <!-- Compilar con Java 17 -->
+            <!-- COMPILADOR JAVA 17 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.13.0</version>
                 <configuration>
                     <release>17</release>
+                    <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
 
-            <!-- Ejecutar pruebas JUnit 5 -->
+            <!-- PRUEBAS UNITARIAS JUNIT 5 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.2.5</version>
             </plugin>
 
-            <!-- Ejecutar ApplicationMain -->
+            <!-- EJECUCION DE APPLICATIONMAIN -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>

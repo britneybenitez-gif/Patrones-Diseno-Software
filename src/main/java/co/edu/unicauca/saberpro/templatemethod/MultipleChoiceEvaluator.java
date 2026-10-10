@@ -29,7 +29,7 @@ public class MultipleChoiceEvaluator extends QuestionEvaluator {
         if (!respuesta.trim().matches("(?i)[A-D]")) {
 
             throw new IllegalArgumentException(
-                    "Debe seleccionar una opción entre A y D."
+                    "Debe seleccionar una opcion entre A y D."
             );
         }
     }
@@ -54,7 +54,7 @@ public class MultipleChoiceEvaluator extends QuestionEvaluator {
             return "Respuesta correcta. Obtuvo 1 punto.";
         }
 
-        return "Respuesta incorrecta. La opción correcta era "
+        return "Respuesta incorrecta. La opcion correcta era "
                 + respuestaCorrecta + ".";
     }
 }

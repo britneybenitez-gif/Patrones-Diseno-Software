@@ -25,7 +25,7 @@ public class ExternalQuestionAdapter implements QuestionProvider {
         // 3. Validar el formato externo
         if (datos.length != 10) {
             throw new IllegalArgumentException(
-                    "El formato de la pregunta externa es inválido."
+                    "El formato de la pregunta externa es invalido."
             );
         }
 
@@ -36,13 +36,13 @@ public class ExternalQuestionAdapter implements QuestionProvider {
             respuestaCorrecta = Integer.parseInt(datos[7]);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(
-                    "La respuesta correcta debe ser un número."
+                    "La respuesta correcta debe ser un numero."
             );
         }
 
         if (respuestaCorrecta < 0 || respuestaCorrecta > 3) {
             throw new IllegalArgumentException(
-                    "El índice de respuesta correcta debe estar entre 0 y 3."
+                    "El indice de respuesta correcta debe estar entre 0 y 3."
             );
         }
 

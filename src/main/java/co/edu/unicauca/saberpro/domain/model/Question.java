@@ -151,14 +151,14 @@ public class Question {
 
         if (justificacion != null) {
 
-            sb.append("\nJustificación: ")
+            sb.append("\nJustificacion: ")
               .append(justificacion.getTexto())
               .append("\n");
         }
 
         if (clasificacion != null) {
 
-            sb.append("Clasificación: ")
+            sb.append("Clasificacion: ")
               .append(clasificacion.getCategoria())
               .append("\n");
         }

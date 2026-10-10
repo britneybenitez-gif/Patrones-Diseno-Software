@@ -7,7 +7,7 @@ public class PublishedState implements IQuestionState {
     public void submitForReview(QuestionContext question) {
 
         throw new IllegalStateException(
-            "Una pregunta publicada no puede enviarse nuevamente a revisión."
+            "Una pregunta publicada no puede enviarse nuevamente a revision."
         );
     }
 
@@ -15,7 +15,7 @@ public class PublishedState implements IQuestionState {
     public void startReview(QuestionContext question) {
 
         throw new IllegalStateException(
-            "Una pregunta publicada no puede iniciar revisión."
+            "Una pregunta publicada no puede iniciar revision."
         );
     }
 
@@ -31,7 +31,7 @@ public class PublishedState implements IQuestionState {
     public void publish(QuestionContext question) {
 
         throw new IllegalStateException(
-            "La pregunta ya está publicada."
+            "La pregunta ya esta publicada."
         );
     }
 
@@ -44,7 +44,7 @@ public class PublishedState implements IQuestionState {
 public void requestCorrections(QuestionContext question) {
 
     throw new IllegalStateException(
-        "Solo se pueden solicitar correcciones durante la revisión."
+        "Solo se pueden solicitar correcciones durante la revision."
     );
 }
 

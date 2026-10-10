@@ -34,7 +34,7 @@ public abstract class QuestionEvaluator {
 
         if (respuesta == null || respuesta.trim().isEmpty()) {
             throw new IllegalArgumentException(
-                    "La respuesta no puede estar vacía."
+                    "La respuesta no puede estar vacia."
             );
         }
     }

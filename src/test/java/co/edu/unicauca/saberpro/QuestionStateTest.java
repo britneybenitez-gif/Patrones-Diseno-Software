@@ -18,16 +18,16 @@ public class QuestionStateTest {
     void configurar() {
 
         Question pregunta = new QuestionBuilder()
-                .withContext("Texto de prueba", "Fuente académica")
-                .withEnunciado("¿Qué tipo de patrón es State?")
+                .withContext("Texto de prueba", "Fuente academica")
+                .withEnunciado("¿Que tipo de patrón es State?")
                 .addOption("Creacional", false)
                 .addOption("Estructural", false)
                 .addOption("De comportamiento", true)
-                .addOption("Arquitectónico", false)
+                .addOption("Arquitectonico", false)
                 .withJustification(
                         "State pertenece a los patrones de comportamiento."
                 )
-                .withClassification("Ingeniería de Software")
+                .withClassification("Ingenieria de Software")
                 .build();
 
         contexto = new QuestionContext(pregunta);
@@ -48,7 +48,7 @@ public class QuestionStateTest {
         contexto.submitForReview();
 
         assertEquals(
-                "Pendiente de Revisión",
+                "Pendiente de Revision",
                 contexto.getNombreEstado()
         );
     }
@@ -60,7 +60,7 @@ public class QuestionStateTest {
         contexto.startReview();
 
         assertEquals(
-                "En Revisión",
+                "En Revision",
                 contexto.getNombreEstado()
         );
     }
@@ -196,7 +196,7 @@ void noDebeModificarEnunciadoDirectamenteEnRevision() {
     assertThrows(
         IllegalStateException.class,
         () -> contexto.getQuestion()
-                     .setEnunciado("Modificación ilegal")
+                     .setEnunciado("Modificacion ilegal")
     );
 }
 

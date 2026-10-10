@@ -10,40 +10,40 @@ public class QuestionDirector {
         return builder
 
                 .withContext(
-                        "La tecnología ha transformado la forma en que las personas acceden a la información y se comunican.",
-                        "Texto académico sobre tecnología"
+                        "La tecnologia ha transformado la forma en que las personas acceden a la informacion y se comunican.",
+                        "Texto academico sobre tecnologia"
                 )
 
                 .withEnunciado(
-                        "¿Cuál es la idea principal del texto?"
+                        "¿Cual es la idea principal del texto?"
                 )
 
                 .addOption(
-                        "La tecnología transforma la comunicación y el acceso a la información.",
+                        "La tecnologia transforma la comunicacion y el acceso a la informacion.",
                         true
                 )
 
                 .addOption(
-                        "La tecnología únicamente sirve para entretenimiento.",
+                        "La tecnologia unicamente sirve para entretenimiento.",
                         false
                 )
 
                 .addOption(
-                        "La tecnología elimina la necesidad de estudiar.",
+                        "La tecnologia elimina la necesidad de estudiar.",
                         false
                 )
 
                 .addOption(
-                        "La tecnología no influye en la sociedad.",
+                        "La tecnologia no influye en la sociedad.",
                         false
                 )
 
                 .withJustification(
-                        "La opción A es correcta porque resume la transformación de la comunicación y el acceso a la información."
+                        "La opcion A es correcta porque resume la transformacion de la comunicacion y el acceso a la informacion."
                 )
 
                 .withClassification(
-                        "Lectura Crítica"
+                        "Lectura Critica"
                 )
 
                 .build();
@@ -55,11 +55,11 @@ public class QuestionDirector {
 
                 .withContext(
                         "Un estudiante compra 3 cuadernos. Cada cuaderno cuesta 5000 pesos.",
-                        "Situación matemática"
+                        "Situacion matematica"
                 )
 
                 .withEnunciado(
-                        "¿Cuánto debe pagar el estudiante en total?"
+                        "¿Cuanto debe pagar el estudiante en total?"
                 )
 
                 .addOption(

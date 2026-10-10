@@ -15,7 +15,7 @@ public class ApprovedState implements IQuestionState {
     public void startReview(QuestionContext question) {
 
         throw new IllegalStateException(
-            "La pregunta aprobada no puede iniciar otra revisión."
+            "La pregunta aprobada no puede iniciar otra revision."
         );
     }
 
@@ -23,7 +23,7 @@ public class ApprovedState implements IQuestionState {
     public void approve(QuestionContext question) {
 
         throw new IllegalStateException(
-            "La pregunta ya está aprobada."
+            "La pregunta ya esta aprobada."
         );
     }
 
@@ -33,7 +33,7 @@ public class ApprovedState implements IQuestionState {
         question.setState(new PublishedState());
 
         System.out.println(
-            "Transición: Aprobada -> Publicada"
+            "Transicion: Aprobada -> Publicada"
         );
     }
 
@@ -46,7 +46,7 @@ public class ApprovedState implements IQuestionState {
 public void requestCorrections(QuestionContext question) {
 
     throw new IllegalStateException(
-        "Solo se pueden solicitar correcciones durante la revisión."
+        "Solo se pueden solicitar correcciones durante la revision."
     );
 }
 

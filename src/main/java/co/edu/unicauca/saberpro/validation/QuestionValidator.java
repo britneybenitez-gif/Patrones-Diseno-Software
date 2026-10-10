@@ -18,7 +18,7 @@ public class QuestionValidator {
                 || pregunta.getEnunciado().isBlank()) {
 
             throw new IllegalArgumentException(
-                "El enunciado no puede estar vacío."
+                "El enunciado no puede estar vacio."
             );
         }
 

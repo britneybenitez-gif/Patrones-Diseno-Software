@@ -6,14 +6,14 @@ public class ReviewState implements IQuestionState {
     @Override
     public void submitForReview(QuestionContext question) {
         throw new IllegalStateException(
-            "La pregunta ya está en revisión."
+            "La pregunta ya esta en revision."
         );
     }
 
     @Override
     public void startReview(QuestionContext question) {
         throw new IllegalStateException(
-            "La revisión ya comenzó."
+            "La revision ya comenzo."
         );
     }
 
@@ -23,7 +23,7 @@ public class ReviewState implements IQuestionState {
         question.setState(new ApprovedState());
 
         System.out.println(
-            "Transición: En Revisión -> Aprobada"
+            "Transicion: En Revision -> Aprobada"
         );
     }
 
@@ -33,7 +33,7 @@ public class ReviewState implements IQuestionState {
         question.setState(new DraftState());
 
         System.out.println(
-            "Transición: En Revisión -> Borrador (Correcciones)"
+            "Transicion: En Revision -> Borrador (Correcciones)"
         );
     }
 
@@ -46,7 +46,7 @@ public class ReviewState implements IQuestionState {
 
     @Override
     public String getNombreEstado() {
-        return "En Revisión";
+        return "En Revision";
     }
     
 @Override

@@ -6,7 +6,7 @@ public class ExternalQuestionService {
     public String getQuestionData() {
 
         return "Contexto sobre los patrones de diseño"
-                + "|Plataforma académica externa"
+                + "|Plataforma academica externa"
                 + "|¿Qué patrón permite adaptar interfaces incompatibles?"
                 + "|Adapter"
                 + "|Builder"
@@ -14,6 +14,6 @@ public class ExternalQuestionService {
                 + "|Facade"
                 + "|0"
                 + "|Adapter convierte una interfaz en otra compatible."
-                + "|Ingeniería de Software";
+                + "|Ingenieria de Software";
     }
 }

@@ -70,6 +70,8 @@ public class QuestionBankFacadeTest {
                 pregunta.getEnunciado()
         );
 
+        assertEquals(4, pregunta.getOpciones().size());
+
         assertEquals(1, facade.contarPreguntas());
     }
 

@@ -9,7 +9,7 @@ public class DraftState implements IQuestionState {
         question.setState(new PendingReviewState());
 
         System.out.println(
-            "Transición: Borrador -> Pendiente de Revisión"
+            "Transicion: Borrador -> Pendiente de Revision"
         );
     }
 
@@ -17,7 +17,7 @@ public class DraftState implements IQuestionState {
     public void startReview(QuestionContext question) {
 
         throw new IllegalStateException(
-            "La pregunta debe enviarse antes de iniciar su revisión."
+            "La pregunta debe enviarse antes de iniciar su revision."
         );
     }
 
@@ -46,7 +46,7 @@ public class DraftState implements IQuestionState {
 public void requestCorrections(QuestionContext question) {
 
     throw new IllegalStateException(
-        "Solo se pueden solicitar correcciones durante la revisión."
+        "Solo se pueden solicitar correcciones durante la revision."
     );
 }
 
@@ -57,7 +57,7 @@ public void editarEnunciado(
 
     if (nuevoEnunciado == null || nuevoEnunciado.isBlank()) {
         throw new IllegalArgumentException(
-            "El enunciado no puede estar vacío."
+            "El enunciado no puede estar vacio."
         );
     }
 
