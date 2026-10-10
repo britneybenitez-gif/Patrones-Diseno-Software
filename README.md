@@ -1,98 +1,124 @@
 Banco de Preguntas Saber PRO
-Taller Integrado 07 y 08 – Patrones de Diseño de Software
 
-Universidad del Cauca
-Programa: Ingeniería de Sistemas  
-Asignatura: Ingeniería de Software II  
-Lenguaje: Java 17  
-Herramienta de construcción:Apache Maven  
-Pruebas unitarias:JUnit 5
+ Taller Integrado 07 y 08 – Patrones de Diseño de Software
 
+*Universidad:* Universidad del Cauca  
+*Programa:* Ingeniería de Sistemas  
+*Asignatura:* Ingeniería de Software II  
+*Periodo académico:* 2026.2  
+*Lenguaje:* Java 17  
+*Herramienta de construcción:* Apache Maven  
+*Pruebas unitarias:* JUnit 5  
 
- 1. Descripción del proyecto
+1. Descripción del proyecto
 
-Este proyecto desarrolla un sistema académico de gestión de preguntas tipo Saber PRO mediante la implementación de patrones de diseño de software.
-El objetivo es aplicar principios de diseño orientado a objetos para construir una solución modular, extensible y mantenible, que permita crear, importar, administrar y evaluar preguntas.
-La aplicación integra seis patrones de diseño: **Builder, Adapter, Facade, State, Template Method y Decorator**.
-El proyecto se desarrolla con Java 17 y Maven, incorpora pruebas unitarias con JUnit 5 y utiliza una organización de paquetes que separa las responsabilidades de cada componente.
+El *Banco de Preguntas Saber PRO* es una aplicación académica desarrollada en Java 17 que permite construir, importar, administrar y evaluar preguntas mediante la aplicación de patrones de diseño de software.
+El proyecto corresponde al Taller Integrado 07 y 08 de Ingeniería de Software II de la Universidad del Cauca.
+Su propósito es demostrar cómo los patrones de diseño permiten desarrollar aplicaciones modulares, extensibles y mantenibles, aplicando principios de programación orientada a objetos y buenas prácticas de ingeniería de software.
 
- 
- 2. Objetivos
+Se implementan seis patrones de diseño:
 
-Objetivo general
+- *Builder:* construcción de preguntas.
+- *Adapter:* integración de preguntas externas.
+- *Facade:* simplificación de las operaciones del sistema.
+- *State:* administración del ciclo de vida de las preguntas.
+- *Template Method:* evaluación de respuestas.
+- *Decorator:* incorporación dinámica de funcionalidades adicionales.
 
-Implementar patrones de diseño creacionales, estructurales y de comportamiento en un sistema de gestión de preguntas Saber PRO.
+Además, la aplicación incluye un **cuestionario interactivo por consola**, en el cual el usuario puede responder preguntas de selección múltiple, recibir retroalimentación y consultar su calificación final.
 
-Objetivos específicos
+2. Objetivos
 
-- Construir preguntas complejas mediante el patrón Builder.
-- Integrar información procedente de un servicio externo mediante Adapter.
-- Simplificar las operaciones del sistema utilizando Facade.
-- Administrar el ciclo de vida de las preguntas mediante State.
-- Implementar diferentes estrategias de evaluación utilizando Template Method.
-- Incorporar funcionalidades adicionales mediante Decorator.
-- Verificar el comportamiento de los componentes mediante pruebas unitarias.
+ 2.1. Objetivo general
 
-3. Patrones de diseño implementados
+Implementar patrones de diseño creacionales, estructurales y de comportamiento en un sistema de gestión de preguntas Saber PRO, promoviendo la separación de responsabilidades, reutilización de componentes y extensibilidad del software.
 
-3.1. Builder – Patrón creacional
+ 2.2. Objetivos específicos
 
-Permite construir preguntas paso a paso, separando su proceso de construcción de su representación.
+- Construir preguntas mediante el patrón Builder.
+- Adaptar información proveniente de servicios externos mediante Adapter.
+- Simplificar las operaciones del banco de preguntas mediante Facade.
+- Gestionar el ciclo de vida de las preguntas utilizando State.
+- Implementar algoritmos de evaluación reutilizables mediante Template Method.
+- Agregar funcionalidades dinámicamente utilizando Decorator.
+- Permitir al usuario responder preguntas desde la consola.
+- Verificar el comportamiento del sistema mediante pruebas unitarias con JUnit 5.
+
+ 3. Patrones de diseño implementados
+
+ 3.1. Builder – Patrón creacional
+
+Permite construir objetos complejos paso a paso, separando el proceso de construcción de la representación del objeto.
 
 *Clases principales:*
+
 - IQuestionBuilder
 - QuestionBuilder
 - QuestionDirector
 
-**Funcionalidades:**
-- Construcción de preguntas con contexto, enunciado, opciones, justificación y clasificación.
-- Validación de exactamente cuatro opciones de respuesta.
-- Verificación de una única respuesta correcta.
-- Construcción de ejemplos de lectura crítica y razonamiento cuantitativo.
+*Funcionalidades:*
 
- 3.2. Adapter – Patrón estructural
+- Definir el contexto de una pregunta.
+- Establecer su enunciado.
+- Agregar cuatro opciones de respuesta.
+- Especificar la respuesta correcta.
+- Incorporar justificación y clasificación.
+- Validar que exista exactamente una respuesta correcta.
 
-Permite integrar preguntas provenientes de un servicio externo, transformando su formato al modelo utilizado por la aplicación.
+El sistema utiliza este patrón para construir preguntas de lectura crítica y razonamiento cuantitativo.
 
-Clases principales:
+3.2. Adapter – Patrón estructural
+
+Permite integrar información proveniente de sistemas externos mediante la adaptación de sus interfaces y formatos.
+
+*Clases principales:*
+
 - QuestionProvider
 - ExternalQuestionService
 - ExternalQuestionAdapter
 
-**Funcionamiento:**
+*Funcionamiento:*
 
-El servicio externo proporciona datos de una pregunta en formato de texto delimitado. El adaptador interpreta estos datos y utiliza Builder para construir un objeto `Question` compatible con el sistema.
+`ExternalQuestionService` proporciona información de una pregunta mediante una cadena de texto delimitada.
 
-### 3.3. Facade – Patrón estructural
+`ExternalQuestionAdapter` interpreta los datos y utiliza Builder para convertirlos en un objeto `Question` compatible con el sistema.
 
-Proporciona una interfaz simplificada para interactuar con los componentes internos del Banco de Preguntas.
+Este mecanismo permite integrar preguntas sin modificar el modelo principal de la aplicación.
+
+3.3. Facade – Patrón estructural
+
+Proporciona una interfaz simplificada para acceder a las funcionalidades del Banco de Preguntas.
 
 *Clase principal:*
+
 - QuestionBankFacade
 
-**Componentes relacionados:**
+*Componentes relacionados:*
+
 - QuestionService
 - QuestionRepository
 - QuestionValidator
 - QuestionDirector
 - ExternalQuestionAdapter
 
-**Operaciones disponibles:**
+*Operaciones disponibles:*
+
 - Crear preguntas de lectura crítica.
 - Crear preguntas de razonamiento cuantitativo.
 - Importar preguntas externas.
 - Listar preguntas registradas.
-- Consultar la cantidad de preguntas.
+- Consultar la cantidad de preguntas disponibles.
 
-La fachada coordina los subsistemas, evitando que el cliente deba interactuar directamente con cada componente.
+La fachada coordina los componentes internos y evita que la clase cliente deba gestionar cada subsistema directamente.
 
-3.4. State – Patrón de comportamiento
+ 3.4. State – Patrón de comportamiento
 
-Administra el ciclo de vida de las preguntas mediante objetos que representan sus estados.
+Permite modificar el comportamiento de una pregunta según su estado dentro del proceso de revisión y publicación.
 
-**Clases principales:**
-- QuestionContext
+*Clases principales:*
+
 - IQuestionState
+- QuestionContext
 - DraftState
 - PendingReviewState
 - ReviewState
@@ -100,111 +126,203 @@ Administra el ciclo de vida de las preguntas mediante objetos que representan su
 - PublishedState
 
 *Ciclo de vida:*
-
 Borrador → Pendiente de revisión → En revisión → Aprobada → Publicada
+Durante la revisión también es posible solicitar correcciones, lo que permite regresar la pregunta al estado Borrador.
 
-Durante la revisión también se pueden solicitar correcciones, regresando la pregunta al estado Borrador.
+*Reglas implementadas:*
 
-Cada estado determina las operaciones permitidas y rechaza las transiciones inválidas.
+- Las preguntas comienzan en Borrador.
+- Solamente se permiten las transiciones definidas.
+- Las operaciones inválidas generan excepciones.
+- Las modificaciones se restringen cuando una pregunta se encuentra fuera del estado Borrador.
+- Una pregunta publicada no puede regresar mediante las transiciones normales a un estado anterior.
 
-Se incorporan restricciones para impedir modificaciones de las preguntas cuando se encuentran fuera del estado Borrador.
+3.5. Template Method – Patrón de comportamiento
 
- 3.5. Template Method – Patrón de comportamiento
-
-Define un algoritmo general de evaluación y permite que sus subclases implementen determinadas etapas.
+Define una estructura general para evaluar respuestas, permitiendo que cada tipo de evaluador implemente determinadas etapas del algoritmo.
 
 **Clases principales:**
+
 - QuestionEvaluator
 - MultipleChoiceEvaluator
 - TrueFalseEvaluator
 - CaseStudyEvaluator
 
-**Etapas del algoritmo:**
+*Algoritmo general:*
+
 1. Recibir la respuesta del estudiante.
-2. Validar el formato.
+2. Validar el formato de la respuesta.
 3. Calcular el puntaje.
 4. Generar retroalimentación.
 
-**Tipos de evaluación:**
+*Tipos de evaluación implementados:*
+
 - Selección múltiple.
 - Verdadero o falso.
 - Análisis de casos mediante palabras clave.
 
+La estructura compartida evita duplicar el algoritmo principal de evaluación.
+
 3.6. Decorator – Patrón estructural
 
-Permite agregar funcionalidades a las preguntas de manera dinámica, utilizando composición y sin modificar su implementación original.
+Permite agregar nuevas responsabilidades a una pregunta mediante composición, sin modificar su clase original.
 
-**Clases principales:**
+*Clases principales:*
+
 - QuestionComponent
 - BasicQuestion
 - QuestionDecorator
 - HighDifficultyQuestion
 - FeedbackQuestion
 
-*Funcionalidades:*
-- Agregar un multiplicador de puntaje por alta dificultad.
-- Incorporar retroalimentación técnica adicional.
+*Funcionalidades implementadas:*
+
+- Asignar un multiplicador de puntaje por alta dificultad.
+- Añadir retroalimentación técnica.
 - Combinar varios decoradores sobre una misma pregunta.
 
-Por ejemplo, una pregunta básica con puntaje de `1.0` puede convertirse en una pregunta de alta dificultad con puntaje de `2.0`.
+*Ejemplo:*
 
-4. Arquitectura del proyecto
+Una pregunta básica con puntaje de `1.0` puede recibir un decorador de alta dificultad y pasar a valer `2.0`.
 
-El sistema está organizado en paquetes según las responsabilidades de cada componente.
+Posteriormente, se puede agregar un segundo decorador para incorporar retroalimentación adicional sin modificar su puntaje.
+
+4. Cuestionario interactivo
+
+La aplicación incluye una interfaz por consola que permite responder preguntas de selección múltiple.
+
+**Funcionamiento:**
+
+1. Se construyen dos preguntas mediante Builder.
+2. Se importa una pregunta externa mediante Adapter.
+3. Facade proporciona el listado de preguntas.
+4. El sistema presenta el contexto, el enunciado y cuatro opciones identificadas con A, B, C y D.
+5. El usuario escribe la letra de su respuesta.
+6. Template Method evalúa la respuesta y genera retroalimentación.
+7. Al finalizar se muestra el puntaje total y el porcentaje de aciertos.
+
+*Ejemplo de interacción:*
 
 ```text
-src/
-├── main/
-│   └── java/
-│       └── co/edu/unicauca/saberpro/
-│           ├── ApplicationMain.java
-│           ├── domain/model/
-│           ├── builder/
-│           ├── adapter/
-│           ├── facade/
-│           ├── state/
-│           ├── templatemethod/
-│           ├── decorator/
-│           ├── repository/
-│           ├── service/
-│           └── validation/
-│
-└── test/
-    └── java/
-        └── co/edu/unicauca/saberpro/
-            ├── QuestionBuilderTest.java
-            ├── ExternalQuestionAdapterTest.java
-            ├── QuestionBankFacadeTest.java
-            ├── QuestionStateTest.java
-            ├── CaseStudyEvaluatorTest.java
-            ├── QuestionEvaluatorTest.java
-            └── QuestionDecoratorTest.java
+========== BANCO DE PREGUNTAS SABER PRO ==========
+
+PREGUNTA 1 DE 3
+
+¿Cuál es la idea principal del texto?
+
+A. La tecnología transforma la comunicación
+   y el acceso a la información.
+B. La tecnología únicamente sirve para entretenimiento.
+C. La tecnología elimina la necesidad de estudiar.
+D. La tecnología no influye en la sociedad.
+
+Seleccione su respuesta (A, B, C o D): A
+
+--- RESULTADO ---
+
+Respuesta correcta. Obtuvo 1 punto.
+
+Puntaje obtenido: 1.0
 ```
 
-La clase `ApplicationMain` ejecuta demostraciones de los patrones implementados.
-El repositorio almacena preguntas en memoria, por lo que la información no persiste después de finalizar la aplicación.
+*Al finalizar el cuestionario:*
 
-5. Tecnologías utilizadas
+```text
+============= RESULTADO FINAL =============
 
-| Tecnología | Uso |
+Total de preguntas: 3
+Respuestas correctas: 2
+Respuestas incorrectas: 1
+
+Puntaje total: 2.0 / 3
+Porcentaje de aciertos: 66.67%
+```
+
+Los valores anteriores son ejemplos ilustrativos. El resultado real depende de las respuestas del usuario.
+
+Después del cuestionario, la aplicación también ejecuta demostraciones de los patrones State, Template Method y Decorator.
+
+5. Arquitectura del proyecto
+
+El sistema utiliza una organización modular por paquetes, separando los modelos de dominio, patrones de diseño y componentes de infraestructura.
+
+```text
+Patrones-Diseno-Software/
+│
+├── pom.xml
+├── README.md
+├── .gitignore
+│
+└── src/
+    ├── main/
+    │   └── java/
+    │       └── co/edu/unicauca/saberpro/
+    │           │
+    │           ├── ApplicationMain.java
+    │           │
+    │           ├── domain/
+    │           │   └── model/
+    │           │
+    │           ├── builder/
+    │           ├── adapter/
+    │           ├── facade/
+    │           ├── state/
+    │           ├── templatemethod/
+    │           ├── decorator/
+    │           ├── repository/
+    │           ├── service/
+    │           └── validation/
+    │
+    └── test/
+        └── java/
+            └── co/edu/unicauca/saberpro/
+                ├── QuestionBuilderTest.java
+                ├── ExternalQuestionAdapterTest.java
+                ├── QuestionBankFacadeTest.java
+                ├── QuestionStateTest.java
+                ├── QuestionEvaluatorTest.java
+                ├── CaseStudyEvaluatorTest.java
+                └── QuestionDecoratorTest.java
+```
+
+*Responsabilidades principales:*
+
+| Paquete | Responsabilidad |
 |---|---|
-| Java 17 | Desarrollo de la aplicación |
-| Apache Maven | Gestión de dependencias y compilación |
+| `domain.model` | Entidades del sistema |
+| `builder` | Construcción de preguntas |
+| `adapter` | Integración de preguntas externas |
+| `facade` | Interfaz simplificada |
+| `state` | Ciclo de vida de las preguntas |
+| `templatemethod` | Evaluación de respuestas |
+| `decorator` | Funcionalidades dinámicas |
+| `repository` | Almacenamiento en memoria |
+| `service` | Coordinación de operaciones |
+| `validation` | Validación de preguntas |
+
+Las preguntas se almacenan temporalmente en memoria. La aplicación no utiliza una base de datos persistente.
+
+ 6. Tecnologías utilizadas
+
+| Tecnología | Función |
+|---|---|
+| Java 17 | Lenguaje principal |
+| Apache Maven | Compilación y dependencias |
 | JUnit 5 | Pruebas unitarias |
 | Git | Control de versiones |
-| GitHub | Repositorio del proyecto |
+| GitHub | Alojamiento del repositorio |
 | Visual Studio Code | Entorno de desarrollo |
 
-6. Requisitos para ejecutar el proyecto
+ 7. Requisitos del sistema
 
-Es necesario contar con:
+Para ejecutar el proyecto se necesita:
 
-- JDK 17 o superior compatible con el proyecto.
+- Java JDK 17.
 - Apache Maven.
-- Git, para clonar el repositorio.
-- Un editor o IDE compatible con Java.
+- Git, si se desea clonar el repositorio.
+- Una terminal que permita introducir respuestas por teclado.
 
-Verificar las instalaciones:
+**Verificar las herramientas instaladas:**
 
 ```bash
 java -version
@@ -212,81 +330,126 @@ mvn -version
 git --version
 ```
 
-7. Instalación y ejecución
+ 8. Instalación y ejecución
 
-Paso 1. Clonar el repositorio
+ Paso 1. Clonar el repositorio
 
 ```bash
 git clone https://github.com/britneybenitez-gif/Patrones-Diseno-Software.git
 ```
 
-Paso 2. Ingresar al proyecto
+ Paso 2. Entrar al proyecto
 
 ```bash
 cd Patrones-Diseno-Software
 ```
 
-Paso 3. Compilar el proyecto
+ Paso 3. Compilar
 
 ```bash
 mvn clean compile
 ```
-
-Paso 4. Ejecutar la aplicación
+ Paso 4. Ejecutar la aplicación
 
 ```bash
 mvn exec:java
 ```
 
-La aplicación mostrará en consola las demostraciones de los patrones de diseño implementados.
+La aplicación presentará las preguntas disponibles.
 
-8. Pruebas unitarias
+Cuando aparezca el mensaje:
 
-El proyecto utiliza JUnit 5 para verificar el comportamiento de los componentes.
+```text
+Seleccione su respuesta (A, B, C o D):
+```
 
-Las pruebas comprueban aspectos como:
+Escriba la letra seleccionada y presione Enter.
 
-- Construcción correcta e incorrecta de preguntas.
-- Adaptación de información externa.
-- Operaciones de la fachada.
-- Transiciones válidas e inválidas de estados.
-- Restricciones de modificación de preguntas.
-- Evaluación de diferentes tipos de respuestas.
-- Aplicación y combinación de decoradores.
+El programa evaluará la respuesta y continuará con la siguiente pregunta.
 
-Para ejecutar las pruebas:
+### Nota sobre codificación
+
+Los archivos fuente utilizan UTF-8 para conservar correctamente las tildes, signos de interrogación y demás caracteres especiales del español.
+
+Se recomienda ejecutar el programa en una terminal compatible con UTF-8.
+
+La visualización correcta de los caracteres también depende de la configuración del entorno donde se ejecute la aplicación.
+
+ 9. Pruebas unitarias
+
+El proyecto incorpora pruebas automatizadas utilizando JUnit 5.
+
+*Archivos de pruebas:*
+
+- QuestionBuilderTest.java
+- ExternalQuestionAdapterTest.java
+- QuestionBankFacadeTest.java
+- QuestionStateTest.java
+- QuestionEvaluatorTest.java
+- CaseStudyEvaluatorTest.java
+- QuestionDecoratorTest.java
+
+Las pruebas verifican:
+
+- Construcción válida e inválida de preguntas.
+- Validación de opciones y respuestas correctas.
+- Adaptación de preguntas externas.
+- Registro y consulta mediante Facade.
+- Transiciones válidas e inválidas de State.
+- Restricciones de edición.
+- Evaluación de respuestas.
+- Incorporación y combinación de decoradores.
+
+*Ejecutar todas las pruebas:*
 
 ```bash
 mvn clean test
 ```
 
-**Resultado de la verificación local realizada durante el desarrollo:**
+*Ejecutar solamente las pruebas de State:*
 
-- 48 pruebas ejecutadas.
-- 0 fallos.
-- 0 errores.
-- `BUILD SUCCESS`.
+```bash
+mvn -Dtest=QuestionStateTest test
+```
 
-9. Principios de diseño aplicados
+*Ejecutar solamente las pruebas de Decorator:*
 
-La implementación utiliza conceptos de programación orientada a objetos como encapsulamiento, abstracción, herencia, polimorfismo y composición.
+```bash
+mvn -Dtest=QuestionDecoratorTest test
+```
 
-También favorece principios SOLID, especialmente:
+*Resultado obtenido durante las verificaciones del desarrollo:*
 
-- Responsabilidad única (SRP):separación de construcción, validación, almacenamiento y evaluación.
-- Abierto/Cerrado (OCP):incorporación de nuevos decoradores y evaluadores mediante extensión.
-- Inversión de dependencias (DIP):utilización de interfaces y abstracciones en diferentes componentes.
+```text
+Tests run: 48, Failures: 0, Errors: 0, Skipped: 0
 
-10. Repositorio del proyecto
+BUILD SUCCESS
+```
 
-GitHub:
+ 10. Principios de diseño aplicados
+
+La aplicación utiliza encapsulamiento, abstracción, herencia, polimorfismo y composición.
+
+También aplica principios SOLID:
+
+*Responsabilidad única (SRP):** separa las tareas de construcción, validación, almacenamiento y evaluación.
+
+*Abierto/Cerrado (OCP):** permite extender funcionalidades mediante nuevos decoradores y evaluadores.
+
+*Inversión de dependencias (DIP):** utiliza interfaces y abstracciones para desacoplar diversos componentes.
+
+ 11. Repositorio del proyecto
+
+*GitHub:*
+
 https://github.com/britneybenitez-gif/Patrones-Diseno-Software
 
-11. Autores
+12. Autores
 
-Integrantes: Britney Benitez Ordoñez y Yineidy Mamian Jimenez.
+Britney Benítez Ordóñez
+Yineidy Mamián Jiménez
 
-Universidad del Cauca
-Ingeniería de Sistemas  
+Universidad del Cauca  
+Programa de Ingeniería de Sistemas  
 Ingeniería de Software II  
 Periodo académico 2026.2
